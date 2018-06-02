@@ -27,14 +27,14 @@ rawCapture = PiRGBArray(camera, size=(320, 240))
 stream = camera.capture_continuous(rawCapture, format="bgr",
                                    use_video_port=True)
 
-# flip the view, if necessary
-camera.hflip = True  # horizontal flip
-camera.vflip = True  # vertical flip
-
 # allow the camera to warmup and start the FPS counter
 print("[INFO] sampling frames from `picamera` module...")
 time.sleep(2.0)
 fps = FPS().start()
+
+# flip the view, if necessary
+camera.hflip = True  # horizontal flip
+camera.vflip = True  # vertical flip
 
 # loop over some frames
 for (i, f) in enumerate(stream):
@@ -74,6 +74,10 @@ print("[INFO] sampling THREADED frames from `picamera` module...")
 vs = PiVideoStream().start()
 time.sleep(2.0)
 fps = FPS().start()
+
+# flip the view, if necessary
+camera.hflip = True  # horizontal flip
+camera.vflip = True  # vertical flip
 
 # loop over some frames...this time using the threaded stream
 while fps._numFrames < args["num_frames"]:
