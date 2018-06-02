@@ -18,10 +18,6 @@ class PiVideoStream:
                                                      format="bgr",
                                                      use_video_port=True)
 
-        # flip the view, if necessary
-        self.camera.hflip = True
-        self.camera.vflip = True
-
         # initialize the frame and the variable used to indicate
         # if the thread should be stopped
         self.frame = None
