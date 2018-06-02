@@ -1,6 +1,6 @@
 # https://www.pyimagesearch.com/2015/09/21/opencv-track-object-movement/
 
-# import the necessary classes
+# import the necessary packages
 from collections import deque
 import numpy as np
 import argparse
