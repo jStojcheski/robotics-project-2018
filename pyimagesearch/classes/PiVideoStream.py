@@ -22,6 +22,10 @@ class PiVideoStream:
         self.frame = None
         self.stopped = False
 
+        # flip the view, if necessary
+        self.camera.hflip = True  # horizontal flip
+        self.camera.vflip = True  # vertical flip
+
     def start(self):
         # start the thread to read frames from the video stream
         Thread(target=self.update, args=()).start()
