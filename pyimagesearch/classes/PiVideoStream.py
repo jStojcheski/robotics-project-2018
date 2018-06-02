@@ -10,6 +10,11 @@ class PiVideoStream:
     def __init__(self, resolution=(320, 240), framerate=32):
         # initialize the camera and stream
         self.camera = PiCamera()
+
+        # flip the view, if necessary
+        self.camera.hflip = True  # horizontal flip
+        self.camera.vflip = True  # vertical flip
+
         self.camera.resolution = resolution
         self.camera.framerate = framerate
         self.rawCapture = PiRGBArray(self.camera, size=resolution)
@@ -21,11 +26,7 @@ class PiVideoStream:
         # if the thread should be stopped
         self.frame = None
         self.stopped = False
-
-        # flip the view, if necessary
-        self.camera.hflip = True  # horizontal flip
-        self.camera.vflip = True  # vertical flip
-
+        
     def start(self):
         # start the thread to read frames from the video stream
         Thread(target=self.update, args=()).start()

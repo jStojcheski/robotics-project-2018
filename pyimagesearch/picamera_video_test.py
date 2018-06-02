@@ -13,8 +13,8 @@ camera.framerate = 32
 rawCapture = PiRGBArray(camera, size=(640, 480))
 
 # flip the view, if necessary
-camera.hflip = True  # horizontal flip
-camera.vflip = True  # vertical flip
+# camera.hflip = True  # horizontal flip
+# camera.vflip = True  # vertical flip
 
 # allow the camera to warmup
 time.sleep(0.1)
