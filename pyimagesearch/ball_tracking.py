@@ -13,12 +13,8 @@ ap.add_argument("-v", "--video", help="path to the (optional) video file")
 ap.add_argument("-b", "--buffer", type=int, default=16, help="max buffer size")
 args = vars(ap.parse_args())
 
-# define the lower and upper boundaries of the "green" ball in the HSV color
+# define the lower and upper boundaries of the ball in the HSV color
 # space, then initialize the list of tracked points
-''' original (source) code
-greenLower = (29, 86, 6)
-greenUpper = (64, 255, 255)
-'''
 greenLower = (14, 155, 140)
 greenUpper = (43, 255, 255)
 pts = deque(maxlen=args["buffer"])
@@ -74,9 +70,9 @@ while True:
             cv2.circle(frame, (int(x), int(y)), int(radius),
                        (0, 255, 255), 2)
             cv2.circle(frame, center, 5, (0, 0, 255), -1)
-            # added code begin
+
+            # print (x, y, radius)
             print('x: {:6.2f} | y: {:6.2f} | r: {:6.2f}'.format(x, y, radius))
-            # added code end
     
     # update the points queue
     pts.appendleft(center)
